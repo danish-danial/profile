@@ -1,46 +1,43 @@
-# Astro Starter Kit: Basics
+# Danish Danial
+
+A personal portfolio and notebook, built with Astro 6 and Tailwind 4. Static HTML, locally served fonts, no client-side JavaScript required.
+
+## Develop
 
 ```sh
-bun create astro@latest -- --template basics
+bun install
+bun dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`bun run build` builds into `dist/`. `bun run preview` serves that build. `bun run test` builds and runs the Node regression checks (Node 22.12+).
 
-## 🚀 Project Structure
+## Publish a note
 
-Inside of your Astro project, you'll see the following folders and files:
+Add a Markdown file under `src/pages/posts/`:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```md
+---
+layout: '../../layouts/PostLayout.astro'
+title: 'Your title'
+description: 'An optional short introduction.'
+author: 'Danish Danial'
+---
+
+Your note goes here.
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+It appears automatically on `/notes/` and in the homepage’s three-entry preview. The filename becomes its `/posts/filename` URL. The old `/posts` archive redirects to `/notes/`.
 
-## 🧞 Commands
+`unlisted: true` excludes an entry from both lists, **but its URL remains public**. Keep private drafts outside `src/pages/`. The original `great-post.md` starter is unlisted as an example.
 
-All commands are run from the root of the project, from a terminal:
+## Edit the site
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+- `src/pages/index.astro`: introduction, projects and notes preview.
+- `src/pages/notes/index.astro`: notebook archive and empty state.
+- `src/layouts/Layout.astro`: navigation, footer and metadata.
+- `src/layouts/PostLayout.astro`: Markdown reading layout.
+- `src/styles/tokens.css`: colour, type and spacing tokens.
+- `src/styles/global.css`: page compositions and responsive styles.
+- `DESIGN.md`: the shipped visual system.
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Project copy and contact links came from https://danishdanial.my/. The supplied Catspotting repository URL returned 404 during the redesign, so it is not advertised as publicly available. Add a corrected URL and a real screenshot when available.

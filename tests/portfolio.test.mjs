@@ -21,8 +21,8 @@ test('home and notebook show real work without listing the starter example', asy
         assert.doesNotMatch(html, /The greatest post of all time/);
         assert.match(html, /<main id="main"/);
         assert.match(html, /name="description"/);
-        assert.match(html, /Radio Canada/);
-        assert.doesNotMatch(html, /Zilla Slab|Spectral/);
+        assert.match(html, /Lexend/);
+        assert.doesNotMatch(html, /Radio Canada|Zilla Slab|Spectral/);
         assert.doesNotMatch(html, /astro\.build|Astro Basics/);
     }
 });

@@ -30,13 +30,13 @@
   --color-accent-soft: oklch(93% 0.05 190);
   --color-accent-soft-ink: oklch(27% 0.045 190);
   --color-focus: oklch(50% 0.095 188);
-  --font-display: var(--font-radio-canada), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
   --font-body: var(--font-display);
   --radius-card: 12px;
   --radius-control: 10px;
   --radius-pill: 999px;
   --shadow-card: none;
-  --tracking-display: -0.04em;
+  --tracking-display: 0;
 }
 :root {
   color-scheme: light;

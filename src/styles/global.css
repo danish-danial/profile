@@ -1,4 +1,4 @@
-/* Hallmark · shape: Personal Index · genre: editorial · theme: Ink (by request, Radio Canada override) · refinement: compact index
+/* Hallmark · shape: Personal Index · genre: editorial · theme: Ink (by request, Lexend readability override) · refinement: compact index
  * hero: none · nav: nameplate · footer: contact links · imagery: none · signature: real projects, one sentence each · ink: paper · v2.0.0 */
 /* Critique: remove the pitch and repetition; keep project details available on demand. */
 /* Hallmark · waive 22 · requested Ink palette uses hueless black and grey · preserving the owner's locked monochrome design system */
@@ -10,7 +10,7 @@
     --font-sans: var(--font-body);
 }
 
-body { font-size: 1.0625rem; font-synthesis: none; }
+body { font-size: 1.125rem; line-height: 1.6; font-synthesis: none; }
 ::selection { background: var(--color-accent-soft); color: var(--color-accent-soft-ink); }
 a:hover, summary:hover { color: var(--color-accent); }
 a:active, summary:active { color: var(--color-ink-2); }
@@ -44,7 +44,8 @@ details > p { padding-bottom: var(--space-sm); }
 .post-list p { margin-top: var(--space-xs); }
 .prose { padding-block: var(--space-lg); }
 .prose > * { max-width: 65ch; }
-.prose p { line-height: 1.75; }
+.prose p { line-height: 1.6; }
+.prose em { font-style: normal; font-weight: 600; }
 .prose > * + * { margin-top: var(--space-lg); }
 .prose h2, .prose h3 { margin-top: var(--space-xl); font-size: var(--text-title); }
 

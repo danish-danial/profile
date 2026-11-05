@@ -38,7 +38,7 @@ Read from the owner’s current site, https://danishdanial.my/, on 2026-11-04:
 
 ## Brand Commitments
 
-The owner’s latest direction is Hallmark’s Ink theme (https://www.usehallmark.com/themes/ink/) with Radio Canada throughout, replacing the earlier Grid palette and Zilla Slab/Spectral pairing. The portfolio remains personal, with the philosophy “work alongside opinions”. The shipped adaptation is documented in DESIGN.md.
+The owner’s latest direction is Hallmark’s Ink theme (https://www.usehallmark.com/themes/ink/) with Lexend throughout for the owner’s reading comfort with dyslexia, replacing Radio Canada. The earlier Grid palette and Zilla Slab/Spectral pairing remain retired. The portfolio remains personal, with the philosophy “work alongside opinions”. The shipped adaptation is documented in DESIGN.md.
 
 ## Product Principles
 

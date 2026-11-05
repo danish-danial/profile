@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import type { MarkdownInstance } from 'astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = Object.values(
+    import.meta.glob<MarkdownInstance<{ title: string; unlisted?: boolean }>>('./posts/*.md', { eager: true }),
+).filter((post) => !post.frontmatter.unlisted).slice(0, 3);
 ---
 
 <Layout>
-	<Welcome />
+    <div class="home-index page-width">
+        <p class="intro">I build iOS apps and Python tools.</p>
+
+        <section id="work" aria-labelledby="work-title">
+            <h2 class="section-heading" id="work-title">Projects</h2>
+            <ul class="project-list">
+                <li>
+                    <h3>Catspotting</h3>
+                    <p>A private iOS notebook for the cats you meet, with a map.</p>
+                    <details>
+                        <summary>Under the hood</summary>
+                        <p>A port of <em>All the Cats I’ve Ever Met</em>. Expo SDK 57, expo-router, SwiftUI via @expo/ui, Skia pins and on-device SQLite. No account, backend or network.</p>
+                    </details>
+                </li>
+                <li>
+                    <h3>makanan-larangan</h3>
+                    <p>A Python tool filling in Malaysian food ingredients on Open Food Facts.</p>
+                    <details>
+                        <summary>Development notes</summary>
+                        <p>Resumable, zero dependencies. Fetches one barcode at a time. Early work, not public yet.</p>
+                    </details>
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="notes-title">
+            <h2 class="section-heading" id="notes-title"><a href="/notes/">Notes</a></h2>
+            {posts.length ? (
+                <ul class="post-list">
+                    {posts.map((post) => (
+                        <li><h3><a href={post.url}>{post.frontmatter.title}</a></h3></li>
+                    ))}
+                </ul>
+            ) : (
+                <p class="muted">Nothing published yet.</p>
+            )}
+        </section>
+    </div>
 </Layout>

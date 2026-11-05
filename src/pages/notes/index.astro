@@ -1,0 +1,38 @@
+---
+import type { MarkdownInstance } from "astro";
+import Layout from "../../layouts/Layout.astro";
+
+interface Frontmatter {
+    title: string;
+    description?: string;
+    unlisted?: boolean;
+}
+
+const posts = Object.values(
+    import.meta.glob<MarkdownInstance<Frontmatter>>("../posts/*.md", { eager: true }),
+).filter((post) => !post.frontmatter.unlisted);
+---
+
+<Layout title="Notes" description="Notes from Danish Danial on technology, books, films, songs and whatever stays with him.">
+    <header class="archive-header page-width">
+        <h1>Notes</h1>
+        <p class="lead">Tech, books, films, songs. Whatever stays with me.</p>
+    </header>
+    <section class="archive page-width" aria-label="Published notes">
+        {posts.length ? (
+            <ul class="post-list">
+                {posts.map(({ url, frontmatter: { title, description } }) => (
+                    <li>
+                        <h2><a href={url}>{title}</a></h2>
+                        {description && <p>{description}</p>}
+                    </li>
+                ))}
+            </ul>
+        ) : (
+            <div class="notes-empty">
+                <p>Nothing published yet.</p>
+                <a href="/">Back home</a>
+            </div>
+        )}
+    </section>
+</Layout>

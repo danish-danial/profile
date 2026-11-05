@@ -1,20 +1,52 @@
 ---
 import { Font } from "astro:assets";
-import "../styles/global.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "Danish Danial",
+    description = "iOS apps, Python tools and notes by Danish Danial.",
+} = Astro.props;
+const isHome = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <Font cssVariable="--font-space-mono" preload />
+        <Font cssVariable="--font-radio-canada" preload />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro Basics</title>
+        <meta name="description" content={description} />
+        <title>{title === "Danish Danial" ? title : `${title} | Danish Danial`}</title>
     </head>
-    <body class="min-h-screen">
-        <slot />
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <header class="site-header">
+            <div class="page-width">
+                {isHome ? (
+                    <h1 class="wordmark">Danish Danial</h1>
+                ) : (
+                    <a class="wordmark" href="/" aria-label="Danish Danial, home">Danish Danial</a>
+                )}
+            </div>
+        </header>
+        <main id="main" tabindex="-1">
+            <slot />
+        </main>
+        <footer class="site-footer">
+            <nav class="page-width" aria-label="Contact">
+                <a href="mailto:danishdanialzurkanain@gmail.com">Email</a>
+                <a href="https://github.com/danish-danial">GitHub</a>
+            </nav>
+        </footer>
     </body>
 </html>
+
+<style is:global>
+    @import "../styles/global.css";
+</style>

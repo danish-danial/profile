@@ -1,5 +1,57 @@
+/* Hallmark · shape: Personal Index · genre: editorial · theme: Ink (by request, Radio Canada override) · refinement: compact index
+ * hero: none · nav: nameplate · footer: contact links · imagery: none · signature: real projects, one sentence each · ink: paper · v2.0.0 */
+/* Critique: remove the pitch and repetition; keep project details available on demand. */
+/* Hallmark · waive 22 · requested Ink palette uses hueless black and grey · preserving the owner's locked monochrome design system */
 @import "tailwindcss";
+@import "./tokens.css";
+@import "./base.css" layer(base);
 
 @theme inline {
-    --font-sans: var(--font-space-mono);
+    --font-sans: var(--font-body);
+}
+
+body { font-size: 1.0625rem; font-synthesis: none; }
+::selection { background: var(--color-accent-soft); color: var(--color-accent-soft-ink); }
+a:hover, summary:hover { color: var(--color-accent); }
+a:active, summary:active { color: var(--color-ink-2); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+
+.skip { position: absolute; inset-inline-start: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-sm) var(--space-lg); background: var(--color-ink); color: var(--color-paper); }
+.skip:focus-visible { top: var(--space-md); }
+.site-header { padding-top: var(--space-2xl); }
+.wordmark { display: inline-block; max-width: none; font: 600 var(--text-name)/1.2 var(--font-display); letter-spacing: var(--tracking-display); text-decoration: none; }
+a.wordmark { padding-block: var(--space-xs); }
+.home-index .intro { margin-top: var(--space-sm); color: var(--color-ink-2); }
+.home-index section { margin-top: var(--space-xl); }
+.section-heading { display: flex; align-items: center; gap: var(--space-md); max-width: none; margin-bottom: var(--space-lg); font-size: var(--text-lg); font-weight: 400; letter-spacing: normal; line-height: 1.4; }
+.section-heading::after { content: ""; flex: 1; border-top: var(--rule-hair) solid var(--color-rule); }
+.section-heading a { display: inline-flex; align-items: center; min-height: 44px; }
+.project-list, .post-list { list-style: none; margin: 0; padding: 0; }
+.project-list { display: grid; gap: var(--space-lg); }
+.project-list h3, .post-list h2, .post-list h3 { font-size: var(--text-lg); font-weight: 600; letter-spacing: normal; line-height: 1.4; }
+.project-list p { margin-top: var(--space-2xs); color: var(--color-ink-2); }
+summary { display: list-item; width: fit-content; min-height: 44px; padding-block: var(--space-sm); font-size: var(--text-sm); line-height: 1.5; color: var(--color-muted); cursor: pointer; }
+details > p { padding-bottom: var(--space-sm); }
+.muted, .notes-empty { color: var(--color-muted); }
+
+.archive-header { padding-block: var(--space-xl) var(--space-lg); }
+.archive-header h1 { max-width: none; font-size: var(--text-name); line-height: 1.2; }
+.archive-header .lead { margin-top: var(--space-sm); font-size: var(--text-md); }
+.archive { padding-block: var(--space-lg); }
+.notes-empty a { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-sm); color: var(--color-ink); }
+.post-list li { padding-block: var(--space-md); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.post-list li:first-child { padding-top: 0; }
+.post-list p { margin-top: var(--space-xs); }
+.prose { padding-block: var(--space-lg); }
+.prose > * { max-width: 65ch; }
+.prose p { line-height: 1.75; }
+.prose > * + * { margin-top: var(--space-lg); }
+.prose h2, .prose h3 { margin-top: var(--space-xl); font-size: var(--text-title); }
+
+.site-footer { padding-block: var(--space-xl) var(--space-xl); }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
+.site-footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-sm); }
+
+@media (max-width: 40rem) {
+    .site-header { padding-top: var(--space-xl); }
 }

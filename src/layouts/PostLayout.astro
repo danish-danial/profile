@@ -1,0 +1,23 @@
+---
+import Layout from "./Layout.astro";
+
+interface Props {
+    frontmatter: {
+        title: string;
+        author?: string;
+        description?: string;
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+    <header class="archive-header page-width">
+        <h1>{frontmatter.title}</h1>
+        {frontmatter.author && <p class="lead">Written by {frontmatter.author}</p>}
+    </header>
+    <article class="prose page-width">
+        <slot />
+    </article>
+</Layout>

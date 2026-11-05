@@ -2,6 +2,7 @@
  * hero: none · nav: nameplate · footer: contact links · imagery: none · signature: real projects, one sentence each · ink: paper · v2.0.0 */
 /* Critique: remove the pitch and repetition; keep project details available on demand. */
 /* Hallmark · waive 22 · requested Ink palette uses hueless black and grey · preserving the owner's locked monochrome design system */
+/* Hallmark · waive 80 · owner explicitly requested a bird doodle · quiet decorative accent, not a substitute for product imagery */
 @import "tailwindcss";
 @import "./tokens.css";
 @import "./base.css" layer(base);
@@ -55,4 +56,10 @@ details > p { padding-bottom: var(--space-sm); }
 
 @media (max-width: 40rem) {
     .site-header { padding-top: var(--space-xl); }
+}
+
+.site-footer { position: relative; }
+.bird-gathering { position: absolute; right: var(--gutter); bottom: var(--space-lg); width: clamp(120px, 22vw, 264px); height: auto; color: var(--color-muted); opacity: 0.45; pointer-events: none; user-select: none; }
+@media (max-width: 40rem) {
+    .site-footer nav { padding-right: calc(120px + var(--gutter)); }
 }

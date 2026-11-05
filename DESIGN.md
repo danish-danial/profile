@@ -4,7 +4,7 @@ Shared by the homepage, notes archive and Markdown reading layout. Retains the o
 
 ## System
 
-- Nearly white paper, hueless black, fine rules and restrained teal. Flat surfaces; no cards, shadows, decorative imagery or promotional hero.
+- Nearly white paper, hueless black, fine rules and restrained teal. Flat surfaces; no cards, shadows or promotional hero. The owner requested one decorative exception: a quiet, hand-drawn gathering of birds in the bottom-right footer margin, shared across pages. It uses the muted ink token, stays still, ignores pointer input and is hidden from assistive technology.
 - Lexend throughout, self-hosted through Astro Fontsource. Body 400, project titles and name 600; prose emphasis uses upright 600 rather than italics. No synthetic faces or tight heading tracking. The owner requested this to try improving reading comfort with dyslexia; it is a preference, not a guaranteed benefit.
 - Work alongside opinions, presented as a personal index rather than a pitch.
 - Homepage: name, one-line introduction, two project entries, notes and contact links. Each project has one sentence; native disclosures retain technical details.

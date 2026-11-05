@@ -39,6 +39,15 @@ test('homepage stays brief with technical details available on demand', async ()
     assert.equal((html.match(/<details\b/g) ?? []).length, 2);
 });
 
+test('shared bird doodle is decorative and adds no client-side scripts', async () => {
+    for (const path of ['index.html', 'notes/index.html', 'posts/great-post/index.html']) {
+        const html = await page(path);
+        assert.match(html, /<svg[^>]*class="bird-gathering"[^>]*aria-hidden="true"[^>]*focusable="false"/);
+        assert.equal((html.match(/class="bird-gathering"/g) ?? []).length, 1);
+        assert.doesNotMatch(html, /<script\b/);
+    }
+});
+
 test('old archive redirects and the unlisted example uses the reading layout', async () => {
     assert.match(await page('posts/index.html'), /url=\/notes\//);
     const example = await page('posts/great-post/index.html');
